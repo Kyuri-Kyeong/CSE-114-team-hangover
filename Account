@@ -1,0 +1,54 @@
+//
+// Bank Account Manager
+// name: Kyuri Kyeong
+// Stonybrook ID: 111827215
+// CSE114 - Spring2018
+// HW 5
+//
+
+import java.util.Arrays;
+
+public abstract class Account {
+    private int number;
+    private String ownerFirstName;
+    private String ownerLastName;
+    String suffix;
+    private Transaction[] transactions;
+    private int numOfTransactions = 0;
+    
+    public Account(String firstName, String lastName, int accountNumber) {
+        number = accountNumber;
+        ownerFirstName = firstName;
+        ownerLastName = lastName;
+    }
+    
+    int getNumber() {
+        return number;
+    }
+    
+    public String getFirstName() {
+        return ownerFirstName;
+    }
+    
+    public String getLastName() {
+       return ownerLastName; 
+    }
+    
+    public int getAccountNumber() {
+    	return number; 
+    }
+
+    public String toString() {
+        return "Account: " + number + " Owner: " + ownerFirstName + " " + ownerLastName;
+    }
+    
+    public void expandTransactions() {
+    	transactions = Arrays.copyOf(transactions, transactions.length + 100);
+    }
+    
+    public boolean addTransaction(Transaction trans) {
+    	transactions[numOfTransactions] = trans;
+    	return true;
+    }
+    	
+}
