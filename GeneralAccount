@@ -1,0 +1,20 @@
+public abstract class GeneralAccount extends Account{
+	double balance;
+	
+	public GeneralAccount(int accountNumber, String firstName, String lastName, String suffix, double balance) {
+		super(accountNumber, firstName, lastName, suffix);
+		this.balance = balance;
+	}
+	void deposit(double amount) {
+		balance += amount;
+	}
+	void withdrawal(double amount) {
+		balance -= amount;
+	}
+	void interest(double interest) {
+		balance = balance * (1+ interest);
+	}
+	double getBalance() {
+		return balance;
+	}
+}
