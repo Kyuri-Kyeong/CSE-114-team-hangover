@@ -1,0 +1,20 @@
+
+public class StockAccount extends Account {
+	
+	public StockAccount(String firstName, String lastName, int accountNumber) {
+		super(firstName,lastName,accountNumber,"SA");
+	}
+	
+	public buyStock(String symbol, double numOfShares, SavingsAccount savAcc);
+	
+	public sellStock(String symbol, double numOfShares, GeneralAccount acc);
+	
+	public double getValue();
+	
+	public StockHolding[] getHoldings();
+	
+	public String toString();
+	
+	public boolean addTransaction(Transaction trans);
+	
+}
