@@ -21,15 +21,6 @@ public class CheckingAccount extends GeneralAccount implements Savings {
 		return balance;
 	}
 	
-	public boolean addTransaction(Transaction trans) {
-		if (trans instanceof SavingsTransaction) {
-			if (trans.getBalance >= 0) {
-				return super.addTransaction(trans);
-			}
-		}
-		return false;
-		}
-	
 	public String toString() {
 		return this.getNumber() + "-" + this.getSuffix() + " " + this.getBalance();
 	}
