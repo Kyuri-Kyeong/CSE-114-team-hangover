@@ -17,4 +17,12 @@ public abstract class GeneralAccount extends Account{
 	double getBalance() {
 		return balance;
 	}
+	boolean addTransaction(Transaction trans) {
+		if (trans instanceof SavingsTransaction) {
+			if (trans.getBalance >= 0) {
+				return super.addTransaction(trans);
+			}
+		}
+		return false;
+		}
 }
