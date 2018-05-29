@@ -1,45 +1,42 @@
-//
-// Bank Account Manager
-// name: Kyuri Kyeong
-// Stonybrook ID: 111827215
-// CSE114 - Spring2018
-// HW 5
-//
-
 import java.util.Arrays;
 
 public abstract class Account {
-    private int number;
-    private String ownerFirstName;
-    private String ownerLastName;
-    String suffix;
+    private int accountNumber;
+    private String firstName;
+    private String lastName;
+    private String suffix;
     private Transaction[] transactions;
     private int numOfTransactions = 0;
     
-    public Account(String firstName, String lastName, int accountNumber) {
-        number = accountNumber;
-        ownerFirstName = firstName;
-        ownerLastName = lastName;
+    public Account(int accountNumber, String firstName, String lastName, String suffix) {
+        this.accountNumber = accountNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.suffix = suffix;
     }
     
     int getNumber() {
-        return number;
+        return accountNumber;
     }
     
     public String getFirstName() {
-        return ownerFirstName;
+        return firstName;
     }
     
     public String getLastName() {
-       return ownerLastName; 
+       return lastName; 
     }
     
     public int getAccountNumber() {
-    	return number; 
+    	return accountNumber; 
     }
-
+    
+    public String getSuffix() {
+    	return suffix;
+    }
+    
     public String toString() {
-        return "Account: " + number + " Owner: " + ownerFirstName + " " + ownerLastName;
+        return "Account: " + accountNumber + " Owner: " + firstName + " " + lastName;
     }
     
     public void expandTransactions() {
