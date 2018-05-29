@@ -1,9 +1,3 @@
-/* Name: Kyuri Kyeong
- * ID: 111827215
- * Class: CSE 114
- * Assignment: HW 5
- */
-
 public class CheckingAccount extends GeneralAccount implements Savings {
 	public CheckingAccount(int accountNumber, String firstName, String lastName, double initialBalance) {
 		super(accountNumber, firstName, lastName, "70", initialBalance);
