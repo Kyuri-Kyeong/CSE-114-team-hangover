@@ -1,0 +1,26 @@
+
+public class SavingsAccount extends GeneralAccount{
+	
+	public SavingsAccount(int accountNumber, String firstName, String lastName, double balance) {
+		super( accountNumber,firstName, lastName,"73",balance);
+	}
+	
+	public String toString() {
+		return this.getNumber() + "-" + this.getSuffix() + " " + this.getBalance();
+	}
+	
+	public boolean addTransaction(Transaction trans) {
+		//verify transaction type
+		if (trans instanceof SavingsTransaction){ 
+			//verify amount
+			if (trans.getAmount >= 0) {
+				//add trans to transactions array
+				//return true
+				return super.addTransaction(trans);
+			}
+		}
+		
+		//else false
+		return false;
+	}
+}
