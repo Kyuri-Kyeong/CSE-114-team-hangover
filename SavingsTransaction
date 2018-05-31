@@ -1,11 +1,22 @@
+// Zhanarbek Osmonaliev
+// Bank Account Manager
+// CSE114 - Spring2018
+// HW 5
+//
+
 public class SavingsTransaction extends Transaction {
 	public double amount;
 	private Savings account;
 	
-	public SavingsTransaction (String date, int accountNumber, TransactionType transType, Savings sourceAccount) {
-		super(date, accountNumber, transType);
-		this.account = sourceAccount;
+	public double getAmount() {
+		return amount;
 	}
+
+	public SavingsTransaction (String date, int accountNumber, TransactionType transType, double amount) {
+		super(date, accountNumber, transType);
+		this.amount = amount;
+	}
+	
 
 	public void setAccount(Savings account) {
 		this.account = account;
