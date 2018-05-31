@@ -1,0 +1,15 @@
+public class MutualFundTransaction extends InvestmentTransaction{
+	private double amount;
+	public MutualFundTransaction(String date, int accountNumber, TransactionType transType, double amount, Savings sourceAccount) {
+		super(date, accountNumber, transType, sourceAccount);
+		this.amount = amount;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	
+
+}
