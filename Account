@@ -5,8 +5,9 @@ public abstract class Account {
     private String firstName;
     private String lastName;
     private String suffix;
-    private Transaction[] transactions;
+    private Transaction[] transactions = new Transaction[100];
     private int numOfTransactions = 0;
+    private int maxNumOfTransactions = 100;
     
     public Account(int accountNumber, String firstName, String lastName, String suffix) {
         this.accountNumber = accountNumber;
@@ -41,11 +42,24 @@ public abstract class Account {
     
     public void expandTransactions() {
     	transactions = Arrays.copyOf(transactions, transactions.length + 100);
+    	maxNumOfTransactions += 100;
     }
     
     public boolean addTransaction(Transaction trans) {
-    	transactions[numOfTransactions] = trans;
-    	return true;
+    		if (numOfTransactions < maxNumOfTransactions) {
+    			transactions[numOfTransactions] = trans;
+    			numOfTransactions++;
+    			return true;
+    		}
+    		else {
+    			this.expandTransactions();
+    			this.addTransaction(trans);
+    			return false;
+    		}
     }
+    
+	public Transaction[] getTransactions() {
+		return transactions;
+	}
     	
 }
