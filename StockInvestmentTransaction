@@ -1,0 +1,27 @@
+public class StockInvestmentTransaction extends InvestmentTransaction{
+	private double valuePerShare;
+	private StockHolding stockHolding;
+	
+	public StockInvestmentTransaction(String date, int accountNumber, TransactionType transType, StockHolding item, Savings sourceAccount) {
+		super(date, accountNumber, transType, sourceAccount);
+		this.stockHolding = item;
+	}
+
+	public double getValuePerShare() {
+		return valuePerShare;
+	}
+
+	public void setValuePerShare(double valuePerShare) {
+		this.valuePerShare = valuePerShare;
+	}
+
+	public StockHolding getStockHolding() {
+		return stockHolding;
+	}
+
+	public void setStockHolding(StockHolding stockHolding) {
+		this.stockHolding = stockHolding;
+	}
+	
+	
+}
