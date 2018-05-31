@@ -1,0 +1,29 @@
+public class SavingsTransaction extends Transaction {
+	public double amount;
+	private Savings account;
+	
+	public SavingsTransaction (String date, int accountNumber, TransactionType transType, Savings sourceAccount) {
+		super(date, accountNumber, transType);
+		this.account = sourceAccount;
+	}
+
+	public void setAccount(Savings account) {
+		this.account = account;
+	}
+
+	public Savings getAccount() {
+		return account;
+	}
+
+	public boolean selfCheck() {
+		if (this.amount >= 0 && (
+		getTransactionType() == TransactionType.Deposit ||
+		getTransactionType() == TransactionType.Withdrawal ||
+		getTransactionType() == TransactionType.Interest ||
+		getTransactionType() == TransactionType.CheckCashed ||
+		getTransactionType() == TransactionType.PointOfSale)) {
+			return true;
+		} else return false;
+	}
+}
+	
