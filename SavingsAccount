@@ -13,10 +13,25 @@ public class SavingsAccount extends GeneralAccount{
 		//verify transaction type
 		if (trans instanceof SavingsTransaction){ 
 			//verify amount
-			if (trans.getAmount >= 0) {
-				//add trans to transactions array
-				//return true
-				return super.addTransaction(trans);
+			double transAmount = (SavingsTransaction)trans.getAmount();
+			if (transAmount >= 0) {
+				//carry out transaction
+				switch(trans.getTransactionType()) {
+					case Deposit: 
+						this.deposit(transAmount);
+						return super.addTransaction(trans);
+					case Withdrawal:
+						if (this.balance >= transAmount) {
+							this.withdrawal(transAmount);
+							return super.addTransaction(trans);
+						}
+						break;
+					case Interest:
+						this.interest(transAmount);
+						return super.addTransaction(trans);
+					default:
+						break;
+				}
 			}
 		}
 		
