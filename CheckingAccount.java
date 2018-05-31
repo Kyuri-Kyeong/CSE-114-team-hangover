@@ -20,7 +20,7 @@ public class CheckingAccount extends GeneralAccount implements Savings {
 	}
 
 	public boolean addTransaction(Transaction trans) {
-		if (trans instanceof SavingsTransaction && trans.getAmmount >= 0) {
+		if (trans instanceof SavingsTransaction) {
 			switch (trans.getTransactionType()) { 
 			case Deposit: {this.deposit(trans.getAmount());}
 			case Withdrawal: {this.withdrawal(trans.getAmount());}
