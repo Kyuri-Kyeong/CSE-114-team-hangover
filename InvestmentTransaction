@@ -1,0 +1,28 @@
+public class InvestmentTransaction extends Transaction {
+    public double amount; 
+    private Savings account;
+	
+    public InvestmentTransaction(String date, int accountNumber, TransactionType transType, Savings sourceAccount) {
+		super(date, accountNumber, transType);
+    	this.account = sourceAccount;
+    }
+
+    public void setAccount(Savings account) {
+    	this.account = account;
+    }
+    public Savings getAccount() {
+    	return account;
+    }
+	public boolean selfCheck() {
+		// Get transaction. Verify it is allowable for investments
+		
+		if (account != null && (
+		getTransactionType() == TransactionType.buyMF ||
+		getTransactionType() == TransactionType.sellMF ||
+		getTransactionType() == TransactionType.updateMFSharePrice ||
+		getTransactionType() == TransactionType.buyStock ||
+		getTransactionType() == TransactionType.sellStock)) {
+			return true;
+		} else return false;
+	}
+}
