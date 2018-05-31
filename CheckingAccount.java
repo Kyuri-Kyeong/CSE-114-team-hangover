@@ -27,7 +27,6 @@ public class CheckingAccount extends GeneralAccount implements Savings {
 			case Interest: {this.interest(trans.getAmount());}
 			case CheckCashed: {this.checkCashed(trans.getAmount());}
 			case PointOfSale: {this.pointOfSale(trans.getAmount());}
-			default : {return false;}
 			}
 		} else {return false;}
 		return super.addTransaction(trans);}
