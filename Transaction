@@ -1,0 +1,42 @@
+public abstract class Transaction {
+    public String date;   // format is yyyymmdd – Note this format will sort in proper date order
+    public int accountNumber; // The account number to which the transaction belongs
+    private TransactionType transactionType;
+
+    public Transaction(String date, int accountNumber, TransactionType transType) {
+    	this.date = date;
+    	this.accountNumber = accountNumber;
+    	this.transactionType = transType;
+    }
+    
+    public TransactionType getTransactionType() { return transactionType; }
+    
+    public String getDate() { return date; }
+    public abstract boolean selfCheck();
+    
+    public String tt2String(TransactionType tt) {
+    	if (tt == TransactionType.Deposit) {
+    		return "Deposit           ";
+    	} else if (tt == TransactionType.CheckCashed) {
+    		return "CheckCashed       ";
+    	} else if (tt == TransactionType.Interest) {
+    		return "Interest          ";
+    	} else if (tt == TransactionType.PointOfSale) {
+    		return "PointOfSale       ";
+    	} else if (tt == TransactionType.Withdrawal) {
+    		return "Withdrawal        ";
+    	} else if (tt == TransactionType.buyMF) {
+    		return "buyMF             ";
+    	} else if (tt == TransactionType.buyStock) {
+    		return "buyStock          ";
+    	} else if (tt == TransactionType.sellMF) {
+    		return "sellMF            ";
+    	} else if (tt == TransactionType.sellStock) {
+    		return "sellStock         ";
+    	} else if (tt == TransactionType.updateMFSharePrice) {
+    		return "updateMFSharePrice";
+    	} else {
+    		return "";
+    	}
+    }
+}
